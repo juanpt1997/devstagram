@@ -10,7 +10,8 @@ class PostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['show', 'index']);
+        // Con este middleware evitamos que un usuario no autenticado acceda al resto del controlador
     }
 
     public function index(User $user) // ? Route model binding
