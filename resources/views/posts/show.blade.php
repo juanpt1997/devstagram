@@ -26,6 +26,11 @@
             <div class="shadow bg-white p-5 mb-5">
                 @auth
                     {{-- <p class="text-xl font-bold text-center mb-4">Agrega un Nuevo Comentario</p> --}}
+                    @if (session('mensaje'))
+                        <div class="bg-green-500 p-2 rounded-lg mb-6 text-white text-center uppercase font-bold">
+                            {{ session('mensaje') }}
+                        </div>
+                    @endif
                     <form action="{{ route('comentarios.store', ['post' => $post, 'user' => $post->user]) }}" method="post">
                         @csrf
                         <div class="mb-5">
