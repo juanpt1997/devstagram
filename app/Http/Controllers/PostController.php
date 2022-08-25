@@ -81,6 +81,6 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        dd('Eliminado', $post->id);
+        dd('Eliminando', $post->id);
     }
 }

@@ -25,7 +25,9 @@
                 @auth
                     {{-- ? Luego, validamos que la persona que crea la publicación sea la misma que está autenticada --}}
                     @if ($post->user_id === auth()->user()->id)
-                        <form>
+                        <form method="post" action="{{ route('posts.destroy', $post) }}">
+                            @method('DELETE') {{-- ? Metodo spoofing --}}
+                            @csrf
                             <input class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold mt-4 cursor-pointer"
                                 type="submit" value="Eliminar Publicación">
                         </form>
