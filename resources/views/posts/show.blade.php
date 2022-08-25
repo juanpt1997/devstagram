@@ -20,6 +20,17 @@
                 <p class="mt-5">
                     {{ $post->descripcion }}
                 </p>
+
+                {{-- ? Revisamos si la persona está autenticada para mostrar el botón eliminar --}}
+                @auth
+                    {{-- ? Luego, validamos que la persona que crea la publicación sea la misma que está autenticada --}}
+                    @if ($post->user_id === auth()->user()->id)
+                        <form>
+                            <input class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold mt-4 cursor-pointer"
+                                type="submit" value="Eliminar Publicación">
+                        </form>
+                    @endif
+                @endauth
             </div>
         </div>
         <div class="md:w-1/2 p-5">

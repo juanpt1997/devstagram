@@ -78,4 +78,9 @@ class PostController extends Controller
             ['post' => $post]
         );
     }
+
+    public function destroy(Post $post)
+    {
+        dd('Eliminado', $post->id);
+    }
 }
