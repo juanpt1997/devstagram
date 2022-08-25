@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Comentario;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
@@ -24,5 +25,10 @@ class Post extends Model
         // ? Podemos restringir que ver
         // return $this->belongsTo(User::class, 'user_id')->select(['name', 'username']);
         return $this->belongsTo(User::class)->select(['name', 'username']);
+    }
+
+    // Un post puede tener muchos comentarios
+    public function comentarios(){
+        return $this->hasMany(Comentario::class);
     }
 }
