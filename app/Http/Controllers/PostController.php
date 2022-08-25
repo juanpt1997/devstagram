@@ -81,6 +81,13 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        dd('Eliminando', $post->id);
+        // if ($post->user_id === auth()->user()->id){
+        //     dd('Misma persona');
+        // }
+        // ? Debido a PostPolicy solo con la línea de abajo hago lo mismo que arriba
+        $this->authorize('delete', $post);
+        $post->delete();
+
+        return redirect()->route('posts.index', auth()->user()->username);
     }
 }
