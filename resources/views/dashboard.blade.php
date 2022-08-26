@@ -22,7 +22,7 @@
                     <span class="font-normal"> Siguiendo</span>
                 </p>
                 <p class="text-gray-800 text-sm mb-3 font-bold">
-                    25
+                    {{ $posts->count() }}
                     <span class="font-normal"> posts</span>
                 </p>
             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Like;
 use App\Models\Comentario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -30,5 +31,11 @@ class Post extends Model
     // Un post puede tener muchos comentarios
     public function comentarios(){
         return $this->hasMany(Comentario::class);
+    }
+
+    // likes
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }
