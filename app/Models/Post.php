@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Like;
+use App\Models\User;
 use App\Models\Comentario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -37,5 +38,14 @@ class Post extends Model
     public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    /* ===================================================
+       CHECK IF USER ALREADY LIKED THE POST
+    ===================================================*/
+    public function checkLike(User $user)
+    {
+        // Preguntar si tabla de likes contiene ese user id
+        return $this->likes->contains('user_id', $user->id);
     }
 }
