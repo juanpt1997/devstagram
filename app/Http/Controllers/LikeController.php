@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
+    /* ===================================================
+       GUARDAR LIKE
+    ===================================================*/
     public function store(Request $request, Post $post)
     {
         // Almacenar
@@ -19,7 +22,21 @@ class LikeController extends Controller
             'user_id' => $request->user()->id
         ]);
 
-        // Imprimir un mensaje
+        // Retornar a la vista anterior
+        return back();
+    }
+
+    /* ===================================================
+       BORRAR LIKE
+    ===================================================*/
+    public function destroy(Request $request, Post $post)
+    {
+        // $post->likes()->where('user_id', $request->user()->id)->delete();
+        // ? Otra alternativa
+        $request->user()->likes()->where('post_id', $post->id)->delete();
+        // ? Con la segunda opción tuvimos que agregar la relación de likes en el modelo User
+
+        // Retornar a la vista anterior
         return back();
     }
 }

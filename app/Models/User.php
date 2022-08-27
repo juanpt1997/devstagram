@@ -50,4 +50,9 @@ class User extends Authenticatable
         // ? En caso de que me salga de la convención que entiende laravel
         // return $this->hasMany(Post::class, 'id_usuario');
     }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }
