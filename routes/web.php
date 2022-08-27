@@ -42,7 +42,7 @@ Route::post('/logout', [LogoutController::class, 'store'])->name('logout'); // ?
    RUTAS PARA PERFIL
 ===================================================*/
 Route::get('/editar-perfil', [PerfilController::class, 'index'])->name('perfil.index');
-Route::post('{user:username}/editar-perfil', [PerfilController::class, 'store'])->name('perfil.store');
+Route::post('/editar-perfil', [PerfilController::class, 'store'])->name('perfil.store');
 
 /* ===================================================
    RUTAS PARA POSTS
