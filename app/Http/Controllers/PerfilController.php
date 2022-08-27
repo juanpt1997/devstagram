@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class PerfilController extends Controller
@@ -12,8 +11,8 @@ class PerfilController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(User $user)
+    public function index()
     {
-        dd('Aca se muestra el formulario');
+        return view('perfil.index');
     }
 }
