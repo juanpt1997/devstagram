@@ -61,7 +61,14 @@ class User extends Authenticatable
     public function followers()
     {
         // El método followers en la tabla de followers pertenece a muchos usuarios
-        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
+        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id')->withTimestamps();
+        //The third argument is the foreign key name of the model on which you are defining the relationship, while the fourth argument is the foreign key name of the model that you are joining to:
+    }
+
+    // ALMACENAR LOS QUE SEGUIMOS
+    public function following()
+    {
+        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id')->withTimestamps();
     }
 
     // Comprobar si un usuario ya sigue a otro
@@ -69,7 +76,5 @@ class User extends Authenticatable
     {
         return $this->followers->contains($user->id);
     }
-
-    // ALMACENAR LOS QUE SEGUIMOS
 
 }
