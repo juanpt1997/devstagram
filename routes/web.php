@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LoginController;
@@ -43,7 +44,7 @@ Route::post('/logout', [LogoutController::class, 'store'])->name('logout'); // ?
 ===================================================*/
 Route::get('/editar-perfil', [PerfilController::class, 'index'])->name('perfil.index');
 Route::post('/editar-perfil', [PerfilController::class, 'store'])->name('perfil.store');
-Route::post('/password', [PerfilController::class, 'updatePassword'])->name('perfil.updatePassword');
+Route::post('/editar-perfil/password', [PerfilController::class, 'updatePassword'])->name('perfil.updatePassword');
 
 /* ===================================================
    RUTAS PARA POSTS
@@ -69,3 +70,9 @@ Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagenes.sto
 ===================================================*/
 Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('posts.likes.store');
 Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('posts.likes.destroy');
+
+/* ===================================================
+   RUTAS FOLLOWING USERS
+===================================================*/
+Route::post('/{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
+Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
