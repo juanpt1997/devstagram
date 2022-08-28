@@ -27,8 +27,8 @@
                 </div>
 
                 <p class="text-gray-800 text-sm mb-3 font-bold mt-5">
-                    912419283492
-                    <span class="font-normal"> Seguidores</span>
+                    {{ $user->followers->count() }}
+                    <span class="font-normal"> @choice('Seguidor|Seguidores', $user->followers->count())</span>
                 </p>
                 <p class="text-gray-800 text-sm mb-3 font-bold">
                     1
