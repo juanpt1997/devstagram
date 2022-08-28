@@ -44,7 +44,7 @@
             </form>
         </div>
 
-        <div class="md:w-1/2 bg-white shadow p-6">
+        <div class="md:w-1/2 bg-white shadow p-6 mt-10 md:mt-0">
             <form method="post" class="mt-10 md:mt-0" action="{{ route('perfil.updatePassword') }}">
                 @csrf
                 @if (session('mensaje'))
