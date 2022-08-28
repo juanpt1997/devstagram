@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
 
 class PerfilController extends Controller
@@ -49,7 +50,31 @@ class PerfilController extends Controller
         $usuario->username = $request->username;
         $usuario->email = $request->email;
         // Así verificamos si viene vacío y luego si ya tiene una imagen previa guardada para que no la borre editando solo el username
-        $usuario->imagen = $nombreImagen ?? auth()->user()->imagen ?? null; 
+        $usuario->imagen = $nombreImagen ?? auth()->user()->imagen ?? null;
+        $usuario->save();
+
+        // Redireccionar
+        return redirect()->route('posts.index', $usuario->username);
+    }
+
+    public function updatePassword(Request $request)
+    {
+        // Verifico que la contraseña sea correcta
+        if (!auth()->attempt([
+            'email' => auth()->user()->email,
+            'password' => $request->passwordActual
+        ])) {
+            return back()->with('mensaje', 'Credenciales Incorrectas');
+        }
+
+        // Validación
+        $this->validate($request, [
+            'password' => ['required', 'confirmed', 'min:6']
+        ]);
+
+        // Guardo la contraseña
+        $usuario = User::find(auth()->user()->id);
+        $usuario->password = Hash::make($request->password);
         $usuario->save();
 
         // Redireccionar
