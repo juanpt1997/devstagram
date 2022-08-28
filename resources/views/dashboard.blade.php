@@ -38,6 +38,24 @@
                     {{ $posts->count() }}
                     <span class="font-normal"> posts</span>
                 </p>
+
+                {{-- SEGUIR O DEJAR DE SEGUIR USUARIOS --}}
+                @auth
+                    <form action="{{ route('users.follow') }}" method="post">
+                        @csrf
+                        <input type="submit"
+                            class="bg-blue-600 text-white uppercase rounded-lg px-3 py-1 text-xs font-bold cursor-pointer"
+                            value="Seguir">
+                    </form>
+
+                    <form action="{{ route('users.unfollow') }}" method="post">
+                        @method('DELETE')
+                        @csrf
+                        <input type="submit"
+                            class="bg-red-600 text-white uppercase rounded-lg px-3 py-1 text-xs font-bold cursor-pointer"
+                            value="Dejar de seguir">
+                    </form>
+                @endauth
             </div>
         </div>
     </div>
