@@ -10,7 +10,8 @@
     @empty
         <h1>No hay posts</h1>
     @endforelse --}}
-    @if ($posts->count())
+    {{-- ? Esto fue reemplazado por componentes--}}
+    {{-- @if ($posts->count())
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             @foreach ($posts as $post)
@@ -27,7 +28,9 @@
         </div>
     @else
         <p class="text-center">No hay posts, sigue a alguien para poder mostrar sus posts</p>
-    @endif
+    @endif --}}
+
+    <x-listar-post />
 
 
 @endsection
