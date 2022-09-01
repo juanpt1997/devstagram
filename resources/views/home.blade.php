@@ -3,3 +3,7 @@
 @section('title')
     Página principal
 @endsection
+
+@section('content')
+    
+@endsection
