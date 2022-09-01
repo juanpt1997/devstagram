@@ -19,7 +19,7 @@ class PostController extends Controller
     {
         // $posts = Post::where('user_id', $user->id)->get(); // ? También sirve pero podemos usar la relación creada
         // $posts = $user->posts()->get(); // ? así retorno todo
-        $posts = $user->posts()->paginate(4); // Así pagino
+        $posts = $user->posts()->latest()->paginate(4); // Así pagino
 
         // ? También se puede consultar los posts directo en la vista con el usuario
 
