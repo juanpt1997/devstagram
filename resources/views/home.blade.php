@@ -38,5 +38,5 @@
         Mostrando post desde slot
     </x-listar-post> --}}
 
-    <x-listar-post/>
+    <x-listar-post :posts="$posts" />
 @endsection
