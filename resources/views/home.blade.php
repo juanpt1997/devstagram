@@ -30,7 +30,13 @@
         <p class="text-center">No hay posts, sigue a alguien para poder mostrar sus posts</p>
     @endif --}}
 
-    <x-listar-post />
+    {{-- ? Ejemplo componentes --}}
+    {{-- <x-listar-post >
+        <x-slot:titulo>
+            <header>Esto es un header</header>
+        </x-slot:titulo>
+        Mostrando post desde slot
+    </x-listar-post> --}}
 
-
+    <x-listar-post/>
 @endsection
