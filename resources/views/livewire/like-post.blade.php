@@ -1,3 +1,3 @@
 <div>
-    <h1>Hola mundo</h1>
+    <h1>{{ $post->titulo }}</h1>
 </div>
