@@ -6,12 +6,8 @@ use Illuminate\View\Component;
 
 class ListarPost extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
     public $posts;
+
     public function __construct($posts)
     {
         // ? Hacer saber de la variable $posts
