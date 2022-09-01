@@ -3,15 +3,19 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class LikePost extends Component
 {
     public $post;
     public $isLiked;
 
+
     // ? Funciona como un constructor, se llama apenas se instancia el componente
     public function mount($post){
-        $this->isLiked = $post->checkLike(auth()->user());
+        if (Auth::check()){
+            $this->isLiked = $post->checkLike(auth()->user());
+        }
     }
 
     public function like()
