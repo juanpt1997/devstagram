@@ -37,12 +37,13 @@
                     @endif --}}
                 @endauth
 
-                <p class="font-bold">
+                {{-- ? Esto también se incluye en el componente --}}
+                {{-- <p class="font-bold"> --}}
                     {{-- ? Ambos funcionan y hacen lo mismo --}}
                     {{-- {{ $post->likes->count() }} --}}
-                    {{ $post->likes()->count() }}
-                    <span class="font-normal"> Likes</span>
-                </p>
+                    {{-- {{ $post->likes()->count() }} --}}
+                    {{-- <span class="font-normal"> Likes</span> --}}
+                {{-- </p> --}}
             </div>
 
             <div>
