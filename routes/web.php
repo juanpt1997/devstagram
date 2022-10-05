@@ -51,7 +51,7 @@ Route::post('/editar-perfil/password', [PerfilController::class, 'updatePassword
 Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.index'); // ? Route model binding
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create'); 
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store'); 
-Route::get('/{user:username}/posts/{post}', [PostController::class, 'show'])->name('posts.show'); 
+Route::get('/{user:username}/posts/{post:id}', [PostController::class, 'show'])->name('posts.show'); 
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy'); 
 
 /* ===================================================
