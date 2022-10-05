@@ -50,7 +50,10 @@ Route::post('/editar-perfil/password', [PerfilController::class, 'updatePassword
 ===================================================*/
 Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.index'); // ? Route model binding
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create'); 
-Route::post('/posts', [PostController::class, 'store'])->name('posts.store'); 
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+// ? Con lo de post:id logramos lo siguiente
+// Antes: devstagram.test/juanptr/posts/15 === devstagram.test/valeriatr/posts/15
+// Ahora: Solamente si el post pertenece a dicho usuario se muestra el post, de lo contrario muestra error
 Route::get('/{user:username}/posts/{post:id}', [PostController::class, 'show'])->name('posts.show'); 
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy'); 
 
