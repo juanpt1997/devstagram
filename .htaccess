@@ -1,4 +1,5 @@
 <IfModule mod_rewrite.c>
+# apuntamos directo a .htaccess en public
 RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_URI} !/public
